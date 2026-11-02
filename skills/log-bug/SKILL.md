@@ -77,7 +77,7 @@ anything beyond a word changed.
 
 | `tracker.type` | How |
 |---|---|
-| `jira` | Atlassian MCP `createJiraIssue`: the configured `cloud_id` and `project`, issue type `tracker.bug_type`, the Title as the summary, the rest as the description with `contentFormat: "markdown"`. Set priority through `additional_fields` `{"priority": {"name": "<mapped name>"}}`. If Jira refuses the priority, create without it; the priority is already in the description. If `tracker.start_status` is set, move the new issue there with `getTransitionsForJiraIssue` + `transitionJiraIssue`. |
+| `jira` | Atlassian MCP `createJiraIssue`: the configured `cloud_id` and `project`, issue type `tracker.bug_type`, the Title as the summary, the rest as the description with `contentFormat: "markdown"`. Set priority through `additional_fields` `{"priority": {"name": "<mapped name>"}}`. If Jira refuses the priority, create without it; the priority is already in the description. New bugs always land in **Backlog**: if the new issue is not already in Backlog, move it there with `getTransitionsForJiraIssue` + `transitionJiraIssue`. Never move it to Ready For Dev or any other status. If the project has no Backlog transition, leave it where Jira created it and say so in one line. |
 | `github` | `gh issue create --repo <repo> --title "<Title>" --body-file <draft file> --label bug`. Write the draft to a temp file first so the markdown arrives intact. |
 | `other` | Do not post. Give them the finished bug as one block, ready to paste. |
 
@@ -118,7 +118,6 @@ projects:
       project: GUM                    # jira project key
       repo: owner/name                # github only
       bug_type: Bug                   # the exact issue type name the project uses
-      start_status: Ready For Dev     # optional: where new bugs should land
     overrides:                        # optional, only what the team does differently
       default_priority: Medium
       extra_fields: []                # e.g. ["Build number", "Customer"]
