@@ -4,7 +4,7 @@ A QA engineer gave you this repo and asked you to set it up. Do the following wi
 anything until step 4.
 
 1. Clone or update the repo into `~/.qa-toolkit/repo`:
-   - not there yet: `git clone <this repo's URL> ~/.qa-toolkit/repo`
+   - not there yet: `git clone https://github.com/bakhtawerQA/qa-ai-toolkit.git ~/.qa-toolkit/repo`
    - already there: `git -C ~/.qa-toolkit/repo pull`
 2. For every folder in `~/.qa-toolkit/repo/skills/`, link it into the user's skills so it works in
    every project they open: `ln -sfn ~/.qa-toolkit/repo/skills/<name> ~/.claude/skills/<name>`
@@ -14,7 +14,7 @@ anything until step 4.
 4. If `~/.qa-toolkit/projects.yaml` does not exist, run the **First-time setup** section of
    `skills/log-bug/SKILL.md` now.
 5. End with what to try:
-   > Try it: *"log a bug: the save button does nothing on the profile page"* and paste a screenshot.
+   > Try it: *"log a bug: the save button does nothing on the profile page"*. A screenshot is
+   > optional.
 
-**"Update my QA toolkit"** means: run step 1 (pull), then step 2 for any new skills, then list what
-changed (`git log --oneline` since the previous commit). Their `projects.yaml` is never touched.
+**"Update my QA toolkit"** is handled by the `update-toolkit` skill installed in step 2.

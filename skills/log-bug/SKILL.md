@@ -5,7 +5,7 @@ description: Turn a QA engineer's quick bug note - a one-liner, rough steps, a s
 
 # log-bug - from a quick note to a standard bug ticket
 
-The QA engineer gives you as little as one line and a screenshot. You give back a complete bug in the
+The QA engineer gives you as little as one line. A screenshot is optional. You give back a complete bug in the
 company standard, show it to them, and file it only once they say yes.
 
 Keep the experience effortless: never make them fill a form, never ask what you can see in the
@@ -37,8 +37,12 @@ the page title, error text, the browser, the device frame and the environment ba
 | Actual result | the note, the evidence |
 | Expected result | the note; otherwise what the product clearly should do, marked **(assumed)** |
 | Environment | the URL (dev/stage/prod), the browser and device seen or named, the app version |
-| Evidence | a pasted link, or "screenshot attached in chat" |
+| Evidence | a pasted link, "screenshot attached in chat", or **(not provided)** |
 | Severity, Priority | the words used ("crash", "blocker", "typo") and the user impact, per [bug-standard.md](bug-standard.md) |
+
+**A screenshot is optional.** Never ask for one. If they say one won't paste, tell them how: in the
+terminal press Ctrl+V (not Cmd+V) or drag the file in; in VS Code or the desktop app, paste or drag it
+into the chat; or give the file path and you read it. Carry on with the bug either way.
 
 **Never block on missing detail.** Fill what you can and mark the rest **(assumed)** or
 **(not provided)**. Ask a question only when the bug cannot be understood without the answer.
@@ -122,7 +126,7 @@ projects:
 ```
 
 Finish with one line: *"All set. Bugs for <name> go to <tracker> <project>."* Then carry on with
-their bug if they gave one, or offer: *"Try it: tell me about a bug and paste a screenshot."*
+their bug if they gave one, or offer: *"Try it: tell me about a bug in one line."*
 
 ---
 
